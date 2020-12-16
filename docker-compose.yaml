@@ -1,0 +1,41 @@
+version: "3.7"
+services:
+  db:
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=tlc
+      - MYSQL_ROOT_DATABASE=tlc
+      - MYSQL_ROOT_USER=tlc
+      - MYSQL_PASSWORD=tlc
+  etherpad:
+    image: etherpad/etherpad:stable
+    ports:
+      - "9001:9001"
+    volumes:
+      - ./api/APIKEY.txt:/opt/etherpad-lite/APIKEY.txt
+  mail:
+    image: bytemark/smtp
+    restart: always
+    ports:
+      - "2525:25"
+  back:
+    image: doodleback
+    ports:
+      - "8080:8080"
+    deploy:
+      replicas: 6
+      restart_policy:
+        condition: on-failure
+
+  front:
+    image: bunkerity/bunkerized-nginx
+    volumes: 
+      - ./server-confs:/server-confs
+      - ./front/dist:/www
+    ports: 
+      - "80:8080"
+    environment: 
+      - SERVER_NAME=tlap.diverse-team.fr
+      
