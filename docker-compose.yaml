@@ -31,11 +31,11 @@ services:
 #        max_replicas_per_node: 1
 #      restart_policy:
 #        condition: on-failure
-  front:
+  server:
     image: bunkerity/bunkerized-nginx
     volumes:
       - ./server-confs:/server-confs
-      - ./front/dist:/www
+      - ./front/dist/tlcfront:/www
       - ./config:/config
     ports:
       - "80:8080"
