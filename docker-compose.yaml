@@ -21,22 +21,26 @@ services:
     ports:
       - "2525:25"
   back:
+    build: ./api
     restart: on-failure
-    build : ./api
     ports:
-     - "8080:8080"
-    links:
-      - db
+      - "8080:8080"
+#    deploy:
+#      replicas: 6
+#      placement:
+#        max_replicas_per_node: 1
+#      restart_policy:
+#        condition: on-failure
   front:
     image: bunkerity/bunkerized-nginx
-    volumes: 
+    volumes:
       - ./server-confs:/server-confs
       - ./front/dist:/www
       - ./config:/config
-    ports: 
+    ports:
       - "80:8080"
       - "443:83"
-    environment: 
+    environment:
       - SERVER_NAME=tlap.diverse-team.fr
     links:
       - db
