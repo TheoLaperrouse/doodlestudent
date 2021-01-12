@@ -1,7 +1,8 @@
 FROM ubuntu
+COPY . .
+RUN apt-get update && apt-get install -y \
+    openjdk-11-jdk\
+    smaven
+RUN ./mvnw package -Dmaven.test.skip=true 
 EXPOSE 8080
-#Enlève les interactions de la console
-COPY /target /target
-#Installation de docker-compose
-CMD ./target/tlcdemoApp-1.0.0-SNAPSHOT-runner
-
+CMD ["java","-jar","target/tlcdemoApp-1.0.0-SNAPSHOT-runner.jar"]
