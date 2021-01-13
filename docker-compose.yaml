@@ -1,11 +1,12 @@
 version: "3.7"
 services:
   db:
+    container_name: db
     image: mysql:8.0.22
     ports:
       - "3306:3306"
     environment:
-      - MYSQL_ROOT_PASSWORD=tlc
+      #- MYSQL_ROOT_PASSWORD=tlc
       - MYSQL_DATABASE=tlc
       - MYSQL_USER=tlc
       - MYSQL_PASSWORD=tlc
@@ -36,12 +37,10 @@ services:
     volumes:
       - ./server-confs:/server-confs
       - ./front/dist/tlcfront:/www
-      - ./config:/config
     ports:
       - "80:8080"
       - "443:83"
     environment:
-      environment:
       - SERVER_NAME=tlap.diverse-team.fr
       - SERVE_FILES=yes
       - DISABLE_DEFAULT_SERVER=no
