@@ -1,0 +1,8 @@
+[
+    {
+      "id": "deploy",
+      "execute-command": "./deploy.sh",
+      "command-working-directory": "./",
+      "response-message": "Deploying API server. See More information in deploy.sh..."
+    }
+  ]

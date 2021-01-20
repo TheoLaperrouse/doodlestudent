@@ -1,27 +1,30 @@
 version: "3.7"
 services:
+  etherpad:
+    container_name: etherpad
+    image: etherpad/etherpad:stable
+    ports:
+      - "9001:9001"
+    volumes:
+      - ./api/APIKEY.txt:/opt/etherpad-lite/APIKEY.txt
   db:
     container_name: db
     image: mysql:8.0.22
     ports:
       - "3306:3306"
     environment:
-      #- MYSQL_ROOT_PASSWORD=tlc
+      - MYSQL_ROOT_PASSWORD=tlc
       - MYSQL_DATABASE=tlc
       - MYSQL_USER=tlc
       - MYSQL_PASSWORD=tlc
-  etherpad:
-    image: etherpad/etherpad:stable
-    ports:
-      - "9001:9001"
-    volumes:
-      - ./api/APIKEY.txt:/opt/etherpad-lite/APIKEY.txt
   mail:
+    container_name: mail
     image: bytemark/smtp
     restart: always
     ports:
       - "2525:25"
   back:
+    container_name: back
     build: ./api
     restart: on-failure
     ports:
@@ -33,7 +36,8 @@ services:
 #      restart_policy:
 #        condition: on-failure
   server:
-    image: bunkerity/bunkerized-nginx
+    container_name: server
+    build: ./front
     volumes:
       - ./server-confs:/server-confs
       - ./front/dist/tlcfront:/www
@@ -45,8 +49,8 @@ services:
       - SERVE_FILES=yes
       - DISABLE_DEFAULT_SERVER=no
       - PROXY_REAL_IP=yes
-      - AUTO_LETS_ENCRYPT=yes
-      - REDIRECT_HTTP_TO_HTTPS=yes
+      # - AUTO_LETS_ENCRYPT=yes
+      # - REDIRECT_HTTP_TO_HTTPS=yes
       - USE_LIMIT_REQ=no
       - HTTP2=no
       - FEATURE_POLICY=accelerometer 'none'; ambient-light-sensor 'none'; autoplay 'none'; camera 'none'; display-capture 'none'; document-domain 'none'; encrypted-media 'none'; fullscreen 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; midi 'none'; payment 'none'; picture-in-picture 'none'; speaker 'none'; sync-xhr 'self'; usb 'none'; vibrate 'none'; vr 'none'
@@ -54,6 +58,7 @@ services:
       - db
       - etherpad
       - mail
+  #code tlc : tlc
   myadmin:
     image : phpmyadmin
     container_name: myadmin
