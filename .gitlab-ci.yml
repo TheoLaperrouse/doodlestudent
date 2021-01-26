@@ -1,5 +1,0 @@
-
-deploiement:
-  stage: deploiement
-  script:
-    - echo "Deploiement"

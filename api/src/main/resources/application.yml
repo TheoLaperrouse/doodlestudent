@@ -24,7 +24,7 @@ quarkus:
 #    username: ""
 #    password: ""
     mock: false
-      driver: com.mysql.cj.jdbc.Driver
+    driver: com.mysql.cj.jdbc.Driver
     username: tlc
     password: tlc
     
