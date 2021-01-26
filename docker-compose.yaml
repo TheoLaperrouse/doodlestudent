@@ -13,6 +13,7 @@ services:
     ports:
       - "3306:3306"
     environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
       - MYSQL_ROOT_PASSWORD=tlc
       - MYSQL_DATABASE=tlc
       - MYSQL_USER=tlc
@@ -35,8 +36,8 @@ services:
 #        max_replicas_per_node: 1
 #      restart_policy:
 #        condition: on-failure
-  server:
-    container_name: server
+  front:
+    container_name: front
     build: ./front
     volumes:
       - ./server-confs:/server-confs
