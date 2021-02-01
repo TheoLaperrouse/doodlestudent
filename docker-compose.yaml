@@ -46,7 +46,7 @@ services:
       - "80:8080"
       - "443:83"
     environment:
-      - SERVER_NAME=tlap.diverse-team.fr
+      - SERVER_NAME=tlap.diverse-team.fr  pad.tlap.diverse-team.fr  myadmin.tlap.diverse-team.fr
       - SERVE_FILES=yes
       - DISABLE_DEFAULT_SERVER=no
       - PROXY_REAL_IP=yes
