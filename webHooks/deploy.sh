@@ -5,6 +5,7 @@
 docker-compose down
 docker-compose rm -f
 #On récupère la MAJ
+docker system prune -f
 git pull
 #On build les images
 docker-compose build

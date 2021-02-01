@@ -5,4 +5,4 @@
       "command-working-directory": "/home/zprojet/TLC/doodlestudent/webHooks",
       "response-message": "Deploying API server. See More information in deploy.sh..."
     }
-  ]
+]
