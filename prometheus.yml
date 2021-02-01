@@ -1,0 +1,4 @@
+- job_name: 'Back'  
+  static_configs:
+    - targets: ['doodleback:8080']
+  scrape_interval: 5s
