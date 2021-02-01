@@ -14,7 +14,7 @@ Tous les containers que nous avons dans le compose :
 
 https://levelup.gitconnected.com/automated-deployment-using-docker-github-actions-and-webhooks-54018fc12e32
 Lancer cette ligne de commande depuis la VM :
-webhook ./webHooks/hooks.json -verbose
+webhook hooks.json
 Mise en place de webhooks pour le redéploiement disponible dans webHooks/hooks.json
 
 ## Question 6 : Mise en place Grafana & Prometheus

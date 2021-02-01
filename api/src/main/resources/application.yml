@@ -11,11 +11,13 @@ quarkus:
     username : tlc
     password : tlc
     jdbc:
-      url: jdbc:mysql://db:3306/tlc
+      url: jdbc:mysql://db:3306/tlc?useUnicode=true&serverTimezone=Europe/Paris
       driver: com.mysql.cj.jdbc.Driver
-  hibernate-orm:
-    database:
-      generation: update
+  flyway:
+    migrate-at-start: true
+#  hibernate-orm:
+#    database:
+#      generation: update
   mailer:
     from: test@quarkus.io
 #    host: smtp.sendgrid.net
