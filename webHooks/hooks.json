@@ -1,8 +1,8 @@
 [
     {
       "id": "deploy",
-      "execute-command": "./deploy.sh",
-      "command-working-directory": "./",
+      "execute-command": "/home/zprojet/TLC/doodlestudent/webHooks/deploy.sh",
+      "command-working-directory": "/home/zprojet/TLC/doodlestudent/webHooks",
       "response-message": "Deploying API server. See More information in deploy.sh..."
     }
   ]
