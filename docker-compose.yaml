@@ -50,8 +50,8 @@ services:
       - SERVE_FILES=yes
       - DISABLE_DEFAULT_SERVER=no
       - PROXY_REAL_IP=yes
-      - AUTO_LETS_ENCRYPT=yes
-      - REDIRECT_HTTP_TO_HTTPS=yes
+      #- AUTO_LETS_ENCRYPT=yes
+      #- REDIRECT_HTTP_TO_HTTPS=yes
       - USE_LIMIT_REQ=no
       - HTTP2=no
       - FEATURE_POLICY=accelerometer 'none'; ambient-light-sensor 'none'; autoplay 'none'; camera 'none'; display-capture 'none'; document-domain 'none'; encrypted-media 'none'; fullscreen 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; midi 'none'; payment 'none'; picture-in-picture 'none'; speaker 'none'; sync-xhr 'self'; usb 'none'; vibrate 'none'; vr 'none'
@@ -67,3 +67,25 @@ services:
       - "8082:80"
     environment:
       - PMA_ABSOLUTE_URI=http://myadmin.tlap.diverse-team.fr
+#  prometheus:
+#    image: prom/prometheus:latest
+#    container_name: prometheus
+#    ports:
+#      - 9090:9090
+#    command:
+#      - --config.file=/etc/prometheus/prometheus.yml
+#   volumes:
+#      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+#  grafana:
+#   image: grafana/grafana:6.7.2
+#    container_name: grafana
+#    volumes:
+#      - ./grafana/provisioning:/etc/grafana/provisioning
+#    environment:
+#    chercher variable environnement
+#    links:
+#      - prometheus
+#    restart: unless-stopped
+#    ports:
+#      - 3000:3000
+ 

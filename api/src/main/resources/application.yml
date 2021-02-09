@@ -16,30 +16,8 @@ quarkus:
   hibernate-orm:
     database:
       generation: update
-  mailer:
-    from: test@quarkus.io
-#    host: smtp.sendgrid.net
-    host: mail
-    port: 2525
-#    port: 465
-#    ssl: true
-#    username: ""
-#    password: ""
-    mock: false
-    driver: com.mysql.cj.jdbc.Driver
-    username: tlc
-    password: tlc
-    
-  hibernate-orm:
-    database:
-      generation: update
-  mailer:
-    from: test@quarkus.io
-#    host: smtp.sendgrid.net
-    host: mail
-    port: 2525
-#    port: 465
-#    ssl: true
-#    username: ""
-#    password: ""
-    mock: false
+mailer:
+  from: test@quarkus.io
+  host: mail
+  port: 2525
+  mock: false

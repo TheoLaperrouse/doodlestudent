@@ -1,5 +1,28 @@
 # Compte rendu : 
 
+## Question 0 
+
+Ip de la machine virtuelle : 148.60.11.161
+Ouverture des ports 443 & 80 faite
+
+## Question 1
+
+J'ai décidé de faire une DockerFile pour le back disponible dans doodlestudent/api
+et un autre pour le front disponible dans doodlestudent/front.
+
+Un docker-compose disponible dans doodlestudent/ permet de lancer les différentes parties qui permettent le fonctionnement de l'application ( à voir dans la tâche 4)
+
+
+## Question 2
+
+On configure Nginx directement avec les variables d'environnement disponible sur bunkerity/bunkerized-nginx qui est une image Docker nginx amélioré
+
+
+## Question 3 
+
+Lancer le docker-compose sur la VM :
+docker-compose up --detach
+
 ## Question 4
 
 Tous les containers que nous avons dans le compose :
