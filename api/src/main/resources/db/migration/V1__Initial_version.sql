@@ -68,9 +68,34 @@ CREATE TABLE `Comment` (
 --
 
 CREATE TABLE `hibernate_sequence` (
-  `next_val` bigint NOT NULL
+  `next_val` bigint DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+
+INSERT INTO `hibernate_sequence` (`next_val`) VALUES
+(15),
+(15),
+(1),
+(1),
+(1),
+(1),
+(1),
+(1),
+(1),
+(1),
+(1),
+(1),
+(1),
+(1),
+(1),
+(1),
+(1),
+(1),
+(1),
+(1),
+(1),
+(1);
+ 
 
 -- --------------------------------------------------------
 
@@ -206,5 +231,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-INSERT INTO hibernate_sequence (next_val) VALUES (1);
