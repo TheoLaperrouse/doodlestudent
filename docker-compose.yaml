@@ -45,7 +45,7 @@ services:
       - ./letsencrypt:/etc/letsencrypt
     ports:
       - "80:8080"
-      - "443:83"
+      - "443:8443"
     environment:
       - SERVER_NAME=tlap.diverse-team.fr  pad.tlap.diverse-team.fr  myadmin.tlap.diverse-team.fr
       - SERVE_FILES=yes
