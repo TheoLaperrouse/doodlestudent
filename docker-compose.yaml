@@ -42,6 +42,7 @@ services:
     volumes:
       - ./server-confs:/server-confs
       - ./front/dist/tlcfront:/www
+      - ./letsencrypt:/etc/letsencrypt
     ports:
       - "80:8080"
       - "443:83"
