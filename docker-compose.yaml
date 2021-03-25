@@ -40,8 +40,7 @@ services:
     container_name: front
     build: ./front
     volumes:
-      - ./server-confs:/server-confs
-      - ./front/dist/tlcfront:/www
+      - ./server-confs:/server-confs:ro
       - ./letsencrypt:/etc/letsencrypt
     ports:
       - "80:8080"
