@@ -47,15 +47,18 @@ services:
       - "80:8080"
       - "443:8443"
     environment:
-      - SERVER_NAME=tlap.diverse-team.fr  pad.tlap.diverse-team.fr  myadmin.tlap.diverse-team.fr
-      - SERVE_FILES=yes
-      - DISABLE_DEFAULT_SERVER=no
-      - PROXY_REAL_IP=yes
-      #- AUTO_LETS_ENCRYPT=yes
-      #- REDIRECT_HTTP_TO_HTTPS=yes
-      - USE_LIMIT_REQ=no
+      - SERVER_NAME=tlap.diverse-team.fr pad.tlap.diverse-team.fr myadmin.tlap.diverse-team.fr
+      - AUTO_LETS_ENCRYPT=yes
+      - REDIRECT_HTTP_TO_HTTPS=yes
       - HTTP2=no
       - FEATURE_POLICY=accelerometer 'none'; ambient-light-sensor 'none'; autoplay 'none'; camera 'none'; display-capture 'none'; document-domain 'none'; encrypted-media 'none'; fullscreen 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; midi 'none'; payment 'none'; picture-in-picture 'none'; speaker 'none'; sync-xhr 'self'; usb 'none'; vibrate 'none'; vr 'none'
+      - BLOCK_USER_AGENT=no
+      - BLOCK_TOR_EXIT_NODE=no
+      - BLOCK_PROXIES=no
+      - BLOCK_ABUSERS=no
+      - BLOCK_REFERRER=no
+      - USE_LIMIT_REQ=no
+      - USE_FAIL2BAN=no
     links:
       - db
       - etherpad
